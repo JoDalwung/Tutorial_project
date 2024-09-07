@@ -5,8 +5,8 @@ using UnityEngine;
 public class GameManager : IScene
 {
 
-    public List<IScene.SceneName> SceneList;    
-    public IScene.SceneName EntryScene;
+    public List<SceneName> SceneList;    
+    public SceneName EntryScene;
 
     protected override void _OnLoad()
     {
@@ -24,15 +24,22 @@ public class GameManager : IScene
 
     void _AddEvent()
     {
-
+        LobbyDialog.LobbyToGame_act += LobbyDialog_LobbyToGame_act;
 
     }
 
     void _RemoveEvent()
     {
-    
+        LobbyDialog.LobbyToGame_act -= LobbyDialog_LobbyToGame_act;
 
     }
+
+    private void LobbyDialog_LobbyToGame_act()
+    {
+        ActiveScene(SceneName.GameScene);
+    }
+
+
 
 
 

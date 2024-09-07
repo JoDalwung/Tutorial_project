@@ -9,6 +9,7 @@ public class PlayerInfo : Singletion<PlayerInfo>
     public string Name;
     public List<EquipmentData> EquipmentList = new List<EquipmentData>();
     public int Gold = 100000;
+    public int Eq_Item_idx = -1;
 
     //
     public void SaveData()
@@ -29,7 +30,7 @@ public class PlayerInfo : Singletion<PlayerInfo>
         EquipmentList = data.PlayerData_EquipmentList;
         Gold = data.PlayerData_Gold;
     }
-
+    //
 
 
 }

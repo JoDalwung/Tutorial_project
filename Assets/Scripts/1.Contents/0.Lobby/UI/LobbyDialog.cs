@@ -14,6 +14,8 @@ public class LobbyDialog : IDialog
     [Header("UI_InputField")]
     [SerializeField] InputField _InputField;
 
+    public static event System.Action LobbyToGame_act;
+
     protected override void _OnLoad()
     {
         // caching 
@@ -37,12 +39,16 @@ public class LobbyDialog : IDialog
 
     void _Start_btn_evt()
     {
-
+        _NicNamePopUp_rect.gameObject.SetActive(true);
     }
 
     void _Yes_btn_evt()
     {
-
+        if (_InputField.text != string.Empty)
+        {
+            PlayerInfo.Instance.Name = _InputField.text;
+            LobbyToGame_act?.Invoke();
+        }
     }
 
 

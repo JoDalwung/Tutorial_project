@@ -7,6 +7,7 @@ public class LobbyContent : IContent
     
     public IDialogLoader dialogLoader;
 
+
     protected override void _OnLoad()
     {
         dialogLoader.LoadDialog();
